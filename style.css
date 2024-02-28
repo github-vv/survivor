@@ -1,0 +1,111 @@
+@font-face {
+    font-family: Survivant;
+    src: url("./fonts/survivant.ttf");
+}
+
+@font-face {
+    font-family: Gabrwffr;
+    src: url("./fonts/gabrwffr.ttf");
+}
+
+body, html {
+    height: 100%;
+    margin: 0;
+}
+
+body {
+    font-family: Survivant, serif;
+    font-size: 24px;
+    color: white;
+}
+
+.background {
+    background: url("./img/frame1.png") no-repeat center center fixed;
+    background-size: cover;
+    height: 100%;
+}
+
+.content {
+    padding: 15px;
+}
+
+.board {
+    position: relative;
+}
+
+.textarea {
+    position: absolute;
+    width: 210px;
+    height: 300px;
+    left: 55px;
+    top: 45px;
+    color: #5C4033;
+    background: transparent;
+    font-family: inherit;
+    font-size: 20px;
+    resize: none;
+    border: none;
+}
+
+.textarea:focus {
+    outline: none;
+}
+
+.textarea-bg {
+    height: 400px;
+}
+
+label {
+    cursor: pointer;
+    display: block;
+    font-size: 32px;
+}
+
+.button {
+    display: inline-block;
+    cursor: pointer;
+    margin-bottom: 15px;
+}
+
+.button:hover {
+    color: yellow;
+}
+
+.button:hover::before {
+    content: '> ';
+}
+
+.button:hover::after {
+    content: ' <';
+}
+
+.name {
+    font-family: Gabrwffr, serif;
+    font-size: 32px;
+    display: none;
+    position: absolute;
+    width: 200px;
+    text-align: center;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    left: 47%;
+    top: 46%;
+    color: transparent;
+    text-shadow: 0 0 2px #5C4033;
+    transform: rotate(-6deg);
+}
+
+.name.visible {
+    display: inline-block;
+}
+
+.user-select-none {
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+label, .button {
+    margin-left: 20px;
+}

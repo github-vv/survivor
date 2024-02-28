@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>SURVIVOR ING</title>
+    <link rel="stylesheet" href="./style.css">
+    <link rel="preload" href="./img/board.png">
+    <link rel="preload" href="./img/frame1.png" as="image">
+    <link rel="preload" href="./img/frame2.png" as="image">
+    <link rel="preload" href="./img/frame3.png" as="image">
+</head>
+<body>
+
+<audio id="drums" loop src="./audio/drums.mp3"></audio>
+<audio id="click" src="./audio/click.mp3"></audio>
+<audio id="the-tribe-has-spoken" src="./audio/the-tribe-has-spoken.mp3"></audio>
+
+<div id="background" class="background">
+    <div class="content">
+        <label id="label" for="textarea">SURVIV🦁R</label>
+        <div class="board">
+            <textarea class="textarea" name="textarea" id="textarea" placeholder="First option (one on each line)"
+                      spellcheck="false"></textarea>
+            <img src="./img/board.png" class="textarea-bg"
+                 alt="textarea-bg"/>
+        </div>
+        <div id="name" class="name user-select-none"></div>
+
+        <div id="btn-start" class="button user-select-none">DRAW NAME</div>
+        <br/>
+        <div id="btn-clear" class="button user-select-none">CLEAR</div>
+    </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
