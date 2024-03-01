@@ -5,6 +5,8 @@
         THE_TRIBE_HAS_SPOKEN: 'the-tribe-has-spoken'
     }
 
+    let lang = 'ro-RO';
+
     let audioPlaying = false;
 
     function getElement(elemId) {
@@ -18,6 +20,13 @@
         } else {
             audio.pause();
         }
+    }
+
+    function speak(text) {
+        const utterance = new SpeechSynthesisUtterance(text);
+        const voices = window.speechSynthesis.getVoices();
+        utterance.voice = voices.find(voice => voice.lang === lang);
+        window.speechSynthesis.speak(utterance);
     }
 
     function getRandom(inputArray) {
@@ -61,11 +70,15 @@
     }
 
     window.addEventListener('DOMContentLoaded', () => {
+        window.speechSynthesis.getVoices(); // fixes empty [] voices bug
+
         const label = getElement('label');
         const btnStart = getElement('btn-start');
         const btnClear = getElement('btn-clear');
         const textarea = getElement('textarea');
         const theTribeHasSpoken = getElement('the-tribe-has-spoken');
+        const langRo = getElement('ro-RO');
+        const langEn = getElement('en-US');
 
         label.addEventListener('click', () => {
             play(SOUNDS.DRUMS);
@@ -76,15 +89,31 @@
         });
 
         btnClear.addEventListener('click', () => {
+            play(SOUNDS.CLICK);
             textarea.value = '';
         });
 
         theTribeHasSpoken.addEventListener('ended', () => {
             audioPlaying = false;
+            speak(getElement('name').innerText);
         });
 
         theTribeHasSpoken.addEventListener('playing', () => {
             audioPlaying = true;
+        });
+
+        langRo.addEventListener('click', () => {
+            play(SOUNDS.CLICK);
+            langEn.classList.remove('selected');
+            langRo.classList.add('selected');
+            lang = langRo.id;
+        });
+
+        langEn.addEventListener('click', () => {
+            play(SOUNDS.CLICK);
+            langRo.classList.remove('selected');
+            langEn.classList.add('selected');
+            lang = langEn.id;
         });
     });
 })();

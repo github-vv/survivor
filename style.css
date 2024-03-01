@@ -109,3 +109,11 @@ label {
 label, .button {
     margin-left: 20px;
 }
+
+.selected {
+    background-color: yellow;
+}
+
+.lang {
+    cursor: pointer;
+}
