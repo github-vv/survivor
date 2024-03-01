@@ -5,7 +5,8 @@
         THE_TRIBE_HAS_SPOKEN: 'the-tribe-has-spoken'
     }
 
-    let lang = 'ro-RO';
+    let lang = 'en-US'; // default
+    getElement(lang).classList.add('selected');
 
     let audioPlaying = false;
 
@@ -54,7 +55,7 @@
                 }
                 if (frame === 3) {
                     if (textarea.value) {
-                        const values = textarea.value.trim().split('\n');
+                        const values = textarea.value.split('\n').filter(val => !!val).map(val => val.trim());
                         name.innerText = getRandom(values);
                     } else {
                         name.innerText = '';

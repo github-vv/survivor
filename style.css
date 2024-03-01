@@ -20,9 +20,11 @@ body {
 }
 
 .background {
-    background: url("./img/frame1.png") no-repeat center center fixed;
-    background-size: cover;
+    background-image: url("./img/frame1.png");
     height: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 .content {
@@ -30,7 +32,9 @@ body {
 }
 
 .board {
+    display: inline-block;
     position: relative;
+    height: 400px;
 }
 
 .textarea {
@@ -52,7 +56,7 @@ body {
 }
 
 .textarea-bg {
-    height: 400px;
+    height: 100%;
 }
 
 label {
@@ -106,14 +110,23 @@ label {
     user-select: none;
 }
 
-label, .button {
+label, .button, .lang {
     margin-left: 20px;
-}
-
-.selected {
-    background-color: yellow;
 }
 
 .lang {
     cursor: pointer;
+    position: relative;
+}
+
+.lang .selected {
+    background-color: yellow;
+    border-radius: 2px;
+}
+
+@media only screen and (max-width: 845px) {
+    .board {
+        transform: scale(0.8);
+        transform-origin: top left;
+    }
 }
